@@ -88,7 +88,8 @@ def create_annots(annots_dict):
     annots = []
     for prefix, ann_def in annots_dict.items():
         for ann_idx, ann_list in ann_def.items():
-            annots.append(tuple([prefix + "-" + str(ann_idx), ann_list[0]]))
+            annots.insert(ann_idx, tuple([prefix + "-" + ann_list[0].lower(),
+                                         ann_list[0]]))
     return tuple(annots)
 
 
@@ -178,6 +179,7 @@ def compose_annot(ann_label="", ann_value=None, ann_unit=None,
     # Add last 2 annotation items without values
     if len(ann_value) > 0:
         for ann in ann_label[-2:]:
-            annots.append(ann)
+            if len(ann) > 0:
+                annots.append(ann)
     annots.sort(key=len, reverse=True)
     return annots
