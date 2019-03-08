@@ -66,11 +66,11 @@ def create_annots(annots_dict):
     annots_dict : dictionary
         Dictionary of annotation definitions in the scheme {prefix: def_dict},
         where:
-        prefix: string
+        prefix : string
             Key of the annotation dictionary as a prefix of the annotation
             name in the Decoder class. It is going to be appended with numeric
             key from the value of the annotation dictionary.
-        def_dict: dictionary
+        def_dict : dictionary
             Value of the annotation dictioniary, which is again a dictionary
             defining particular set of annotations.
             - The key of the dictionary is the index of the definition, which
